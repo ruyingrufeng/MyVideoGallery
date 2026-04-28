@@ -494,5 +494,22 @@
     "poster": "posters/8.jpg",
     "bilibili": "https://www.bilibili.com/video/BV1kVJ8z9EER/",
     "youtube": "https://www.youtube.com/results?search_query=白日梦想家+The+Secret+Life+of+Walter+Mitty+2013"
+  },
+  {
+    "id": 9,
+    "title": "牯岭街少年杀人事件",
+    "year": "1991",
+    "director": "杨德昌",
+    "rating": "8.9",
+    "tags": [
+      "剧情"
+    ],
+    "status": "想看",
+    "recommend": "⭐⭐⭐ 强烈推荐",
+    "shortDesc": "华语影史里程碑，四小时青春史诗",
+    "fullDesc": "这部由杨德昌执导的台湾电影杰作，被誉为当代影坛最受推崇的作品之一。影片以六十年代初的台湾为背景，改编自一起震动全岛的真实案件。这部兼具宏大格局与私密情感的巨作，以小说般的笔触与沉静的凝视，聚焦一位少年（张震银幕首秀）从纯真逐渐无可挽回地滑向犯罪深渊的过程，交织着躁动青春、摇滚乐与政治动荡的压抑时代底色。",
+    "poster": "posters/9.jpg",
+    "bilibili": "https://www.bilibili.com/video/BV1K4bRzsEPw/",
+    "youtube": "https://www.youtube.com/results?search_query=A+Brighter+Summer+Day+1991"
   }
 ]
