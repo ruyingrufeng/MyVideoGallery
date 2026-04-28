@@ -511,5 +511,20 @@
     "poster": "posters/9.jpg",
     "bilibili": "https://www.bilibili.com/video/BV1K4bRzsEPw/",
     "youtube": "https://www.youtube.com/results?search_query=A+Brighter+Summer+Day+1991"
+  },
+  {
+    "id": 10,
+    "title": "黑鹰坠落",
+    "year": "2001",
+    "director": "雷德利·斯科特",
+    "rating": "7.4",
+    "tags": ["动作", "剧情"],
+    "status": "想看",
+    "recommend": "⭐⭐⭐ 强烈推荐",
+    "shortDesc": "雷德利·斯科特执导，现代战争片天花板，真实还原1993年摩加迪沙巷战",
+    "fullDesc": "导演雷德利·斯科特改编自真实战争故事，讲述1993年一支美军特种部队被派往索马里，旨在推翻政府并为饥民提供粮食与人道主义援助，却遭到袭击的经过。",
+    "poster": "posters/10.jpg",
+    "bilib": "https://www.bilibili.com/video/BV1J7Q9YQEuT/",
+    "youtube": "https://www.youtube.com/results?search_query=Black+Hawk+Down+2001+full+movie"
   }
 ]
