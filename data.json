@@ -5,14 +5,27 @@
     "year": "2015",
     "director": "Ilya Naishuller",
     "rating": "7.7",
-    "tags": ["动作", "科幻"],
+    "tags": [
+      "动作",
+      "科幻"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "全程无剪辑第一人称GoPro视角",
     "fullDesc": "你叫亨利，你在一架直升机上醒来，不记得任何事情。一个名叫吉米的陌生声音告诉你，你被杀害了，又被复活——现在你的妻子被一个叫阿肯的军阀绑架了。一场疯狂的复仇之旅就此展开，全程以第一人称GoPro视角拍摄，从头到尾毫无剪辑，让你亲身体验每一拳每一枪。",
     "poster": "posters/1.jpg",
     "youtube": "https://www.youtube.com/watch?v=2CgWI3VfH7U",
-    "bilibili": "https://www.bilibili.com/video/BV1gdVGz6ERK/"
+    "bilibili": "https://www.bilibili.com/video/BV1gdVGz6ERK/",
+    "otherLinks": [
+      {
+        "name": "hnytxj",
+        "url": "https://m.hnytxj.com/vod/play/126897/1/1065583"
+      },
+      {
+        "name": "yfsp.tv",
+        "url": "https://m.yfsp.tv/play/PgE2w2NBvJA"
+      }
+    ]
   },
   {
     "id": 2,
@@ -20,14 +33,23 @@
     "year": "2008",
     "director": "Matt Reeves",
     "rating": "7.1",
-    "tags": ["科幻", "恐怖"],
+    "tags": [
+      "科幻",
+      "恐怖"
+    ],
     "status": "想看",
     "recommend": "⭐⭐ 推荐",
     "shortDesc": "伪纪录片式手持摄像机POV",
     "fullDesc": "好友罗布要去日本工作，他的弟弟杰森和朋友莉莉为他举办了一场欢送派对。看到杰森拎着DV只顾拍摄美女玛莲娜，莉莉很恼火，指出他更加关注罗布，因为后者才是今天的主角。罗布姗姗来迟，并且感到没落。原来他跟好友贝丝的地下情刚刚告吹，这令他异常沮丧。正在此时，贝丝携新男友出现在派对现场，这令好友感到既尴尬又愤怒，而真正的地震危险正在悄悄逼近……本片故事是采用伪DV风格的拍摄而成。",
     "poster": "posters/2.jpg",
     "youtube": "https://www.youtube.com/watch?v=KKdbo_CQLeI",
-    "bilibili": "https://www.bilibili.com/video/BV13U8RzPEUY/"
+    "bilibili": "https://www.bilibili.com/video/BV13U8RzPEUY/",
+    "otherLinks": [
+      {
+        "name": "ikanbot",
+        "url": "https://v.ikanbot.com/play/404539"
+      }
+    ]
   },
   {
     "id": 3,
@@ -35,7 +57,10 @@
     "year": "2014",
     "director": "Daniel Stamm",
     "rating": "6.4",
-    "tags": ["动作", "科幻"],
+    "tags": [
+      "动作",
+      "科幻"
+    ],
     "status": "想看",
     "recommend": "⭐ 感兴趣",
     "shortDesc": "大量第一人称镜头",
@@ -50,7 +75,9 @@
     "year": "2003",
     "director": "张黎",
     "rating": "9.6",
-    "tags": ["剧情"],
+    "tags": [
+      "剧情"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "豆瓣9.6分经典历史剧 全68集 海外未删减版",
@@ -59,74 +86,352 @@
     "youtube": "https://www.youtube.com/watch?v=0nfjB3ZvdnE&list=PL287PZ63qCjT7nllVwB2YdQAxRNpJ-gTl",
     "bilibili": "https://www.bilibili.com/video/BV1currBXEAX/",
     "episodes": [
-      {"num": "01", "title": "第1集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "02", "title": "第2集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "03", "title": "第3集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "04", "title": "第4集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "05", "title": "第5集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "06", "title": "第6集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "07", "title": "第7集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "08", "title": "第8集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "09", "title": "第9集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "10", "title": "第10集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"},
-      {"num": "11", "title": "第11集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "12", "title": "第12集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "13", "title": "第13集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "14", "title": "第14集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "15", "title": "第15集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "16", "title": "第16集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "17", "title": "第17集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "18", "title": "第18集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "19", "title": "第19集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "20", "title": "第20集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"},
-      {"num": "21", "title": "第21集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "22", "title": "第22集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "23", "title": "第23集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "24", "title": "第24集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "25", "title": "第25集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "26", "title": "第26集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "27", "title": "第27集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "28", "title": "第28集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "29", "title": "第29集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "30", "title": "第30集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"},
-      {"num": "31", "title": "第31集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "32", "title": "第32集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "33", "title": "第33集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "34", "title": "第34集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "35", "title": "第35集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "36", "title": "第36集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "37", "title": "第37集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "38", "title": "第38集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "39", "title": "第39集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "40", "title": "第40集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"},
-      {"num": "41", "title": "第41集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "42", "title": "第42集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "43", "title": "第43集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "44", "title": "第44集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "45", "title": "第45集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "46", "title": "第46集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "47", "title": "第47集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "48", "title": "第48集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "49", "title": "第49集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "50", "title": "第50集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"},
-      {"num": "51", "title": "第51集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "52", "title": "第52集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "53", "title": "第53集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "54", "title": "第54集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "55", "title": "第55集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "56", "title": "第56集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "57", "title": "第57集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "58", "title": "第58集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "59", "title": "第59集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "60", "title": "第60集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"},
-      {"num": "61", "title": "第61集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "62", "title": "第62集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "63", "title": "第63集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "64", "title": "第64集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "65", "title": "第65集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "66", "title": "第66集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "67", "title": "第67集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"},
-      {"num": "68", "title": "第68集", "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"}
+      {
+        "num": "01",
+        "title": "第1集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "02",
+        "title": "第2集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "03",
+        "title": "第3集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "04",
+        "title": "第4集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "05",
+        "title": "第5集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "06",
+        "title": "第6集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "07",
+        "title": "第7集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "08",
+        "title": "第8集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "09",
+        "title": "第9集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "10",
+        "title": "第10集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=1"
+      },
+      {
+        "num": "11",
+        "title": "第11集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "12",
+        "title": "第12集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "13",
+        "title": "第13集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "14",
+        "title": "第14集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "15",
+        "title": "第15集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "16",
+        "title": "第16集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "17",
+        "title": "第17集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "18",
+        "title": "第18集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "19",
+        "title": "第19集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "20",
+        "title": "第20集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=2"
+      },
+      {
+        "num": "21",
+        "title": "第21集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "22",
+        "title": "第22集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "23",
+        "title": "第23集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "24",
+        "title": "第24集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "25",
+        "title": "第25集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "26",
+        "title": "第26集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "27",
+        "title": "第27集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "28",
+        "title": "第28集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "29",
+        "title": "第29集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "30",
+        "title": "第30集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=3"
+      },
+      {
+        "num": "31",
+        "title": "第31集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "32",
+        "title": "第32集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "33",
+        "title": "第33集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "34",
+        "title": "第34集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "35",
+        "title": "第35集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "36",
+        "title": "第36集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "37",
+        "title": "第37集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "38",
+        "title": "第38集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "39",
+        "title": "第39集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "40",
+        "title": "第40集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=4"
+      },
+      {
+        "num": "41",
+        "title": "第41集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "42",
+        "title": "第42集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "43",
+        "title": "第43集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "44",
+        "title": "第44集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "45",
+        "title": "第45集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "46",
+        "title": "第46集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "47",
+        "title": "第47集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "48",
+        "title": "第48集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "49",
+        "title": "第49集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "50",
+        "title": "第50集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=5"
+      },
+      {
+        "num": "51",
+        "title": "第51集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "52",
+        "title": "第52集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "53",
+        "title": "第53集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "54",
+        "title": "第54集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "55",
+        "title": "第55集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "56",
+        "title": "第56集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "57",
+        "title": "第57集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "58",
+        "title": "第58集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "59",
+        "title": "第59集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "60",
+        "title": "第60集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=6"
+      },
+      {
+        "num": "61",
+        "title": "第61集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "62",
+        "title": "第62集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "63",
+        "title": "第63集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "64",
+        "title": "第64集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "65",
+        "title": "第65集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "66",
+        "title": "第66集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "67",
+        "title": "第67集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      },
+      {
+        "num": "68",
+        "title": "第68集",
+        "link": "https://www.bilibili.com/video/BV1currBXEAX?p=7"
+      }
+    ],
+    "otherLinks": [
+      {
+        "name": "iyf.tv",
+        "url": "https://www.iyf.tv/play/Zik0xPDpVh3?id=2ycHogbTqxL"
+      }
     ]
   },
   {
@@ -135,14 +440,28 @@
     "year": "1999",
     "director": "大卫·芬奇",
     "rating": "9",
-    "tags": ["剧情", "悬疑", "动作"],
+    "tags": [
+      "剧情",
+      "悬疑",
+      "动作"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "第一人称旁白叙事，主观视角展现人格分裂与身份幻象",
     "fullDesc": "杰克是一个充满中年危机意识的人，他非常憎恨自己的生活及一切，再加上他患有严重的失眠症，所以他常常参加各种团体咨询会，只为了能接触人群。一个偶然的机会，杰克遇到了卖肥皂的商人泰勒，一个浑身充满叛逆、残酷和暴烈的痞子英雄。两人因缘际会地成为了好朋友，并创立了\"搏击俱乐部\"：一个让人们不戴护具而徒手搏击，宗旨在于发泄情绪的地下组织。",
     "poster": "posters/5.jpg",
     "youtube": "https://www.youtube.com/watch?v=eMeG9zUlcx0",
-    "bilibili": "https://www.bilibili.com/video/BV1nnxAzoEXK/"
+    "bilibili": "https://www.bilibili.com/video/BV1nnxAzoEXK/",
+    "otherLinks": [
+      {
+        "name": "ikanbot",
+        "url": "https://v.ikanbot.com/play/602442"
+      },
+      {
+        "name": "yfsp.tv",
+        "url": "https://m.yfsp.tv/play/kkL05oOE0MD"
+      }
+    ]
   },
   {
     "id": 6,
@@ -150,14 +469,22 @@
     "year": "1999",
     "director": "斯坦利·库布里克",
     "rating": "8.2",
-    "tags": ["剧情", "悬疑"],
+    "tags": [
+      "剧情",
+      "悬疑"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "库布里克遗作，婚姻与欲望的迷幻之旅",
     "fullDesc": "医生威廉姆携太太参加他的一位主顾家里举行的晚会时，巧遇了他的一位大学同学——在晚会上担任钢琴师的尼克。当晚，威廉姆因公外出。料理完公事后，他在一家酒吧再次遇到了尼克，尼克告诉了他有一个秘密舞会。威廉姆匆匆准备后，展开了一次如幻如梦的冒险之旅。过程充满了诡异和神秘，背后的玄机更是令人无法参透。",
     "poster": "posters/6.jpg",
     "youtube": "https://www.youtube.com/watch?v=4yaqSMcI7-k",
-    "bilibili": "https://www.bilibili.com/video/BV1ccC7BZEA4/"
+    "otherLinks": [
+      {
+        "name": "yfsp.tv",
+        "url": "https://m.yfsp.tv/play/dVm4aCq6dw2"
+      }
+    ]
   },
   {
     "id": 7,
@@ -165,7 +492,10 @@
     "year": "1992",
     "director": "王晶",
     "rating": "8.3",
-    "tags": ["喜剧", "动作"],
+    "tags": [
+      "喜剧",
+      "动作"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "周星驰经典喜剧，金庸武侠改编",
@@ -174,8 +504,16 @@
     "youtube": "https://www.youtube.com/watch?v=ho5ctCgcUuo",
     "bilibili": "https://www.bilibili.com/video/BV1vPDeBLErP/",
     "episodes": [
-      {"num": "上", "title": "鹿鼎记 (1992)", "link": "https://www.bilibili.com/video/BV1vPDeBLErP/"},
-      {"num": "下", "title": "鹿鼎记II：神龙教 (1992)", "link": "https://www.bilibili.com/video/BV1YHziBHE4R/"}
+      {
+        "num": "上",
+        "title": "鹿鼎记 (1992)",
+        "link": "https://www.bilibili.com/video/BV1vPDeBLErP/"
+      },
+      {
+        "num": "下",
+        "title": "鹿鼎记II：神龙教 (1992)",
+        "link": "https://www.bilibili.com/video/BV1YHziBHE4R/"
+      }
     ]
   },
   {
@@ -184,14 +522,27 @@
     "year": "2013",
     "director": "本·斯蒂勒",
     "rating": "8.1",
-    "tags": ["剧情", "喜剧"],
+    "tags": [
+      "剧情",
+      "喜剧"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "冰岛滑板梦游，25号底片之旅",
     "fullDesc": "沃特·密提是一名在《生活》杂志工作了16年的胶片洗印经理。他性格内向，时常做白日英雄梦。直到有一天公司被并购，杂志需要做最后一期的封面，而封面成功与否的关键是能否找到狂野摄影师尚恩的一卷胶片。沃特踏上真正的冒险之旅——冰原、大海、喜马拉雅山……白梦远不及现实壮丽。",
     "poster": "posters/8.jpg",
     "youtube": "https://www.youtube.com/watch?v=ShfhqiESv58",
-    "bilibili": "https://www.bilibili.com/video/BV1kVJ8z9EER/"
+    "bilibili": "https://www.bilibili.com/video/BV1kVJ8z9EER/",
+    "otherLinks": [
+      {
+        "name": "yfsp.tv",
+        "url": "https://m.yfsp.tv/play/qJUdvfzuZoB"
+      },
+      {
+        "name": "爱奇艺",
+        "url": "https://www.iqiyi.com/v_19rrhoh4sg.html"
+      }
+    ]
   },
   {
     "id": 9,
@@ -199,14 +550,22 @@
     "year": "1991",
     "director": "杨德昌",
     "rating": "8.9",
-    "tags": ["剧情"],
+    "tags": [
+      "剧情"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "华语影史里程碑，四小时青春史诗",
     "fullDesc": "华语影史里程碑，四小时青春史诗",
     "poster": "posters/9.jpg",
     "youtube": "https://www.youtube.com/watch?v=W5KHQLgjdAI",
-    "bilibili": "https://www.bilibili.com/video/BV1K4bRzsEPw/"
+    "bilibili": "https://www.bilibili.com/video/BV1FQJczKEBa/",
+    "otherLinks": [
+      {
+        "name": "B站备用",
+        "url": "https://www.bilibili.com/video/BV1rz7tz3EgV/"
+      }
+    ]
   },
   {
     "id": 10,
@@ -214,13 +573,22 @@
     "year": "2001",
     "director": "雷德利·斯科特",
     "rating": "7.4",
-    "tags": ["动作", "剧情"],
+    "tags": [
+      "动作",
+      "剧情"
+    ],
     "status": "想看",
     "recommend": "⭐⭐⭐ 强烈推荐",
     "shortDesc": "雷德利·斯科特执导，现代战争片天花板，真实还原1993年摩加迪沙巷战",
     "fullDesc": "1993年，美军游骑兵和三角洲部队被派往索马里首都摩加迪沙，执行抓捕军阀艾迪德两名高级副手的任务。原本预计一小时结束的行动，却因两架黑鹰直升机被击落而演变成一场长达15小时的巷战。19名美军阵亡，超过1000名索马里人丧生。雷德利·斯科特执导，真实还原了这场现代战争史上最惨烈的城市巷战之一。",
     "poster": "posters/10.jpg",
     "youtube": "",
-    "bilibili": "https://www.bilibili.com/video/BV1J7Q9YQEuT/"
+    "bilibili": "https://www.bilibili.com/video/BV1J7Q9YQEuT/",
+    "otherLinks": [
+      {
+        "name": "yfsp.tv",
+        "url": "https://m.yfsp.tv/play/ihRpsK3yGo6"
+      }
+    ]
   }
 ]
