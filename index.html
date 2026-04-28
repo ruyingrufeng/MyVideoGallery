@@ -1,378 +1,217 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的影视心愿单</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #000000; color: #f1f1f1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-        .vimeo-blue { color: #1ab7ea; }
-        .bg-vimeo-blue { background-color: #1ab7ea; }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
-        
-        .fade-in { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的影视心愿单</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { background-color: #000000; color: #f1f1f1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+.vimeo-blue { color: #1ab7ea; }
+.bg-vimeo-blue { background-color: #1ab7ea; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
-    <!-- 登录弹窗 (默认隐藏) -->
-    <div id="loginModal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur flex items-center justify-center hidden">
-        <div class="bg-[#1e1e1e] p-8 rounded-xl shadow-2xl w-96 border border-gray-800 relative">
-            <button onclick="hideLogin()" class="absolute top-4 right-4 text-gray-500 hover:text-white">✕</button>
-            <h2 class="text-2xl font-bold text-center text-white mb-6">🔑 用户登录</h2>
-            <input type="text" id="usernameInput" placeholder="请输入用户名" class="w-full bg-black border border-gray-700 text-white px-4 py-3 rounded focus:outline-none focus:border-vimeo-blue mb-2 transition-colors">
-            <p id="loginError" class="text-red-500 text-xs mb-4 hidden">用户名不能为空</p>
-            <button onclick="handleLogin()" class="w-full bg-vimeo-blue hover:bg-[#00a1d6] text-white font-bold py-3 rounded transition-colors shadow-lg">登录</button>
-        </div>
-    </div>
-
-    <!-- 顶部导航栏 -->
-    <nav class="border-b border-gray-800 bg-[#000000]/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="showList()">
-                <div class="w-8 h-8 bg-vimeo-blue rounded-full flex items-center justify-center">
-                    <svg class="w-4 h-4 text-white pl-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-                <span class="text-xl font-bold tracking-tight hover:text-[#1ab7ea] transition-colors">Watchlist</span>
-            </div>
-            <div class="flex items-center space-x-6">
-                <div class="text-xs font-medium text-gray-400 text-right space-y-1 hidden sm:block">
-                    <div id="sysTime">时间加载中...</div>
-                    <div id="sysInfo">IP加载中...</div>
-                </div>
-                <div id="userArea" class="flex items-center space-x-3">
-                    <!-- 动态渲染登录状态 -->
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 主内容区：列表视图 -->
-    <main id="listView" class="max-w-[1400px] mx-auto px-6 py-10 flex-grow w-full fade-in">
-        <h1 class="text-2xl font-bold mb-8 flex items-center">
-            <span>最新添加</span>
-            <span class="ml-3 text-sm bg-gray-800 text-gray-300 px-3 py-1 rounded-full font-normal" id="countBadge">0 部</span>
-        </h1>
-        <div id="movieGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 gap-y-10">
-            <!-- 动态渲染卡片 -->
-        </div>
-    </main>
-
-    <!-- 详情页视图 (默认隐藏) -->
-    <main id="detailView" class="max-w-[1200px] mx-auto px-6 py-10 flex-grow w-full hidden">
-        <button onclick="showList()" class="flex items-center text-gray-400 hover:text-white mb-8 transition-colors group">
-            <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-            返回列表
-        </button>
-        
-        <div id="detailContent" class="flex flex-col md:flex-row gap-10 fade-in">
-            <!-- 动态渲染详情 -->
-        </div>
-    </main>
-
-    <script>
-        // 电影数据
-        const movies = [
-            {
-                id: 1,
-                title: "硬核亨利",
-                year: "2015",
-                director: "Ilya Naishuller",
-                rating: "7.7",
-                tags: ["动作", "科幻"],
-                status: "想看",
-                recommend: "⭐⭐⭐ 强烈推荐",
-                shortDesc: "全程无剪辑第一人称GoPro视角",
-                fullDesc: "《硬核亨利》是一部极具实验性质的动作电影。影片全程采用第一人称视角（POV）拍摄，观众将直接代入主角亨利的视角，体验一场从昏迷中苏醒、发现自己被改造成半机械人，并在一路杀戮中寻找身世真相和拯救妻子的疯狂之旅。令人肾上腺素飙升的跑酷、枪战与肉搏令人大呼过瘾。",
-                poster: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&w=600&q=80",
-                bilibili: "https://www.bilibili.com/video/BV1gdVGz6ERK/",
-                youtube: "https://www.youtube.com/watch?v=2CgWI3VfH7U"
-            },
-            {
-                id: 2,
-                title: "科洛弗档案",
-                year: "2008",
-                director: "Matt Reeves",
-                rating: "7.1",
-                tags: ["科幻", "恐怖"],
-                status: "想看",
-                recommend: "⭐⭐ 推荐",
-                shortDesc: "伪纪录片式手持摄像机POV",
-                fullDesc: "伪纪录片式科幻惊悚经典。影片以手持摄像机的伪纪录片形式，记录了一场突如其来的巨型怪兽袭击纽约市的灾难。晃动的镜头、未知的恐惧以及身临其境的逃生视角，将末日降临时的无力感与绝望感展现得淋漓尽致，开创了怪兽灾难片的新视听体验。",
-                poster: "https://images.unsplash.com/photo-1505699261372-49ce614e5114?auto=format&fit=crop&w=600&q=80",
-                bilibili: "https://www.bilibili.com/video/BV13U8RzPEUY/",
-                youtube: "https://www.youtube.com/results?search_query=Cloverfield+full+movie+first+person"
-            },
-            {
-                id: 3,
-                title: "末日重启",
-                year: "2014",
-                director: "Daniel Stamm",
-                rating: "6.4",
-                tags: ["动作", "科幻"],
-                status: "想看",
-                recommend: "⭐ 感兴趣",
-                shortDesc: "大量第一人称镜头",
-                fullDesc: "一部融合了科幻与动作元素的独立电影，以大量的第一人称镜头为特色。故事设定在资源枯竭的末日废土世界，主角在生存与人性之间苦苦挣扎。影片特有的POV视角极大地增强了观众在荒芜世界中探索与求生的代入感。",
-                poster: "https://images.unsplash.com/photo-1440407876336-62333a6f010f?auto=format&fit=crop&w=600&q=80",
-                bilibili: "https://www.bilibili.com/video/BV1c54y1B7HJ/",
-                youtube: "https://www.youtube.com/results?search_query=The+Survivalist+2014+first+person"
-            },
-            {
-                id: 4,
-                title: "走向共和",
-                year: "2003",
-                director: "张黎",
-                rating: "9.6",
-                tags: ["剧情", "历史"],
-                status: "想看",
-                recommend: "⭐⭐⭐ 强烈推荐",
-                shortDesc: "豆瓣9.6分经典历史剧 全68集 海外未删减版",
-                fullDesc: "豆瓣9.6分的神级国产历史剧，全景式展现了从洋务运动到走向共和的波澜壮阔的历史画卷。剧集深刻剖析了李鸿章、慈禧、袁世凯、孙中山等历史人物的复杂性与时代局限性。海外未删减版更原汁原味地保留了所有历史细节与极具深度的政治对话，是不可多得的史诗级巨作。",
-                poster: "https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&w=600&q=80",
-                bilibili: "https://www.bilibili.com/video/BV1currBXEAX/",
-                youtube: "https://www.youtube.com/watch?v=0nfjB3ZvdnE&list=PL287PZ63qCjT7nllVwB2YdQAxRNpJ-gTl",
-                episodes: Array.from({length: 68}, (_, i) => ({
-                    num: String(i + 1).padStart(2, '0'),
-                    title: `第${i + 1}集`,
-                    link: "https://www.youtube.com/watch?v=0nfjB3ZvdnE&list=PL287PZ63qCjT7nllVwB2YdQAxRNpJ-gTl"
-                }))
-            },
-            {
-                id: 5,
-                title: "搏击俱乐部",
-                year: "1999",
-                director: "大卫·芬奇",
-                rating: "9",
-                tags: ["剧情", "悬疑", "动作"],
-                status: "想看",
-                recommend: "⭐⭐⭐ 强烈推荐",
-                shortDesc: "第一人称旁白叙事，主观视角展现人格分裂与身份幻象",
-                fullDesc: "大卫·芬奇执导的影史经典。影片通过主角杰克的第一人称冰冷独白，揭露了现代消费社会中男性的身份焦虑。杰克偶遇了充满魅力的泰勒·德顿，他们共同创建的地下搏击俱乐部逐渐演变为失控的无政府组织。全片以主观视角层层剥开人格分裂的真相，结尾震撼人心，是对现代文明的彻底反叛。",
-                poster: null,
-                bilibili: "https://www.bilibili.com/video/BV1nnxAzoEXK/",
-                youtube: "https://www.youtube.com/results?search_query=Fight+Club+1999+full+movie"
-            },
-            {
-                id: 6,
-                title: "大开眼界",
-                year: "1999",
-                director: "斯坦利·库布里克",
-                rating: "7.5",
-                tags: ["剧情", "悬疑"],
-                status: "想看",
-                recommend: "⭐⭐ 推荐",
-                shortDesc: "库布里克遗作，欲望迷宫与心理崩塌",
-                fullDesc: "斯坦利·库布里克遗作。医生夫妇的婚姻危机在一场神秘的上流派对后演变成危险的禁忌游戏。影片用标志性的对称构图与缓慢运镜构建了一个充满符号与隐喻的心理迷宫，深入探讨婚姻、欲望与信任。",
-                poster: "https://image.tmdb.org/t/p/w500/8Wch1De3UpH4XgBRK6cyhs8Zfe.jpg",
-                bilibili: "https://www.bilibili.com/video/BV1ccC7BZEA4/",
-                youtube: "https://www.youtube.com/results?search_query=Eyes+Wide+Shut+1999+Kubrick+full+movie"
-            }
-        ];
-
-        // 渲染列表页
-        function renderList() {
-            const grid = document.getElementById('movieGrid');
-            document.getElementById('countBadge').innerText = `${movies.length} 部`;
-            grid.innerHTML = movies.map(movie => `
-                <div class="flex flex-col group cursor-pointer" onclick="openDetail(${movie.id})">
-                    <div class="relative aspect-[2/3] bg-[#16181c] rounded-xl overflow-hidden group-hover:shadow-2xl transition-all duration-300 ring-1 ring-gray-800">
-                        <img src="${movie.poster}" alt="${movie.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded shadow">${movie.status}</div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="w-14 h-14 bg-vimeo-blue rounded-full flex items-center justify-center pl-1 shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
-                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex flex-col flex-grow">
-                        <h3 class="text-lg font-bold text-gray-100 group-hover:text-[#1ab7ea] transition-colors line-clamp-1" title="${movie.title}">${movie.title}</h3>
-                        <p class="mt-1 text-sm text-gray-400">${movie.year} · ⭐ ${movie.rating}</p>
-                        <p class="mt-1 text-xs text-gray-500 line-clamp-1">${movie.tags.join(', ')}</p>
-                        <p class="mt-2 text-xs text-gray-400 line-clamp-2 leading-relaxed" title="${movie.fullDesc || movie.shortDesc}">${movie.fullDesc || movie.shortDesc}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // 打开详情页
-        function openDetail(id) {
-            const movie = movies.find(m => m.id === id);
-            if (!movie) return;
-
-            document.getElementById('listView').classList.add('hidden');
-            document.getElementById('detailView').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            const detailContent = document.getElementById('detailContent');
-            detailContent.innerHTML = `
-                <!-- 左侧大主图 -->
-                <div class="w-full md:w-1/3 lg:w-1/4 shrink-0">
-                    <div class="relative aspect-[2/3] rounded-xl overflow-hidden shadow-2xl ring-1 ring-gray-800">
-                        <img src="${movie.poster}" alt="${movie.title}" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                
-                <!-- 右侧信息区 -->
-                <div class="w-full md:w-2/3 lg:w-3/4 flex flex-col justify-start">
-                    <div class="flex flex-wrap items-center gap-3 mb-4">
-                        <h1 class="text-3xl md:text-5xl font-bold tracking-tight">${movie.title}</h1>
-                        <span class="text-2xl text-gray-500 font-light">(${movie.year})</span>
-                    </div>
-                    
-                    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-6">
-                        <span class="bg-gray-800 px-3 py-1 rounded text-[#1ab7ea] font-medium">⭐ ${movie.rating}</span>
-                        <span>导演：<span class="text-white">${movie.director}</span></span>
-                        <span>类型：<span class="text-white">${movie.tags.join(', ')}</span></span>
-                        <span class="text-yellow-500">${movie.recommend}</span>
-                    </div>
-                    
-                    <div class="mb-8 border-t border-gray-800 pt-6">
-                        <h3 class="text-lg font-bold mb-3 text-gray-100">一句话简评</h3>
-                        <p class="text-gray-400 text-lg italic border-l-4 border-vimeo-blue pl-4">${movie.shortDesc}</p>
-                    </div>
-
-                    <div class="mb-8">
-                        <h3 class="text-lg font-bold mb-3 text-gray-100">剧情简介</h3>
-                        <p class="text-gray-400 leading-relaxed text-justify">${movie.fullDesc}</p>
-                    </div>
-
-                    ${movie.episodes && movie.episodes.length > 0 ? `
-                    <div class="mb-8">
-                        <h3 class="text-lg font-bold mb-3 text-gray-100">选集播放</h3>
-                        <div class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-2">
-                            ${movie.episodes.map(ep => `
-                                <a href="${ep.link}" target="_blank" class="flex flex-col items-center justify-center py-2 bg-gray-800 hover:bg-[#1ab7ea] text-gray-300 hover:text-white rounded transition-colors text-sm font-medium" title="${ep.title}">
-                                    ${ep.num}
-                                </a>
-                            `).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-
-                    <!-- 播放操作区 -->
-                    <div class="mt-auto pt-4 flex flex-wrap gap-4">
-                        <a href="${movie.bilibili}" target="_blank" class="flex items-center justify-center px-6 py-3 bg-[#00a1d6] hover:bg-[#00b5e5] text-white font-bold rounded-lg transition-colors shadow-lg shadow-[#00a1d6]/20">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.34 5.34l-2.09 2.09c1.94 1.25 3.25 3.4 3.25 5.82 0 3.86-3.14 7-7 7s-7-3.14-7-7c0-2.42 1.31-4.57 3.25-5.82L7.66 5.34C5.1 7.08 3.5 9.99 3.5 13.25c0 4.97 4.03 9 9 9s9-4.03 9-9c0-3.26-1.6-6.17-4.16-7.91zM11.5 5h2v9h-2z"/></svg>
-                            在 Bilibili 观看
-                        </a>
-                        <a href="${movie.youtube}" target="_blank" class="flex items-center justify-center px-6 py-3 bg-[#ff0000] hover:bg-[#ff3333] text-white font-bold rounded-lg transition-colors shadow-lg shadow-red-500/20">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                            在 YouTube 观看
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-
-        // 返回列表
-        function showList() {
-            document.getElementById('detailView').classList.add('hidden');
-            document.getElementById('listView').classList.remove('hidden');
-        }
-
-        // 动态刮削TMDB数据
-        async function fetchTMDBData() {
-            const apiKey = '469ef5ff22632826c6a02c7ea7196799';
-            for (let movie of movies) {
-                try {
-                    const type = movie.title === '走向共和' ? 'tv' : 'movie';
-                    const url = `https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&language=zh-CN&query=${encodeURIComponent(movie.title)}&page=1`;
-                    const res = await fetch(url);
-                    const data = await res.json();
-                    
-                    if (data.results && data.results.length > 0) {
-                        const result = data.results[0];
-                        if (result.poster_path) movie.poster = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${result.poster_path}`;
-                        if (result.overview) movie.fullDesc = result.overview;
-                    }
-                } catch (e) {
-                    console.error('TMDB请求失败:', e);
-                }
-            }
-            renderList(); // 数据更新后刷新卡片封面
-        }
-
-        // --- 新增：系统信息（时间、IP、访问数据） ---
-        function updateSysInfo() {
-            // 1. 实时时间更新
-            setInterval(() => {
-                document.getElementById('sysTime').innerText = new Date().toLocaleString('zh-CN', { hour12: false });
-            }, 1000);
-
-            // 2. 获取IP并统计访问
-            fetch('https://api.ipify.org?format=json')
-                .then(res => res.json())
-                .then(data => {
-                    // 使用本地存储记录总访问量
-                    let visits = localStorage.getItem('site_visits') || 0;
-                    visits = parseInt(visits) + 1;
-                    localStorage.setItem('site_visits', visits);
-                    
-                    // 模拟在线人数（静态网页无后端，用随机数代替）
-                    const mockOnline = Math.floor(Math.random() * 5) + 1; 
-
-                    document.getElementById('sysInfo').innerText = `IP: ${data.ip} | 在线: ${mockOnline}人 | 总访问: ${visits}次`;
-                })
-                .catch(() => {
-                    document.getElementById('sysInfo').innerText = '系统信息加载失败';
-                });
-        }
-
-        // --- 新增：本地模拟登录管理 ---
-        function checkAuth() {
-            const user = localStorage.getItem('currentUser');
-            const userArea = document.getElementById('userArea');
-            if (user) {
-                userArea.innerHTML = `
-                    <span class="text-sm text-gray-300 font-medium truncate max-w-[100px]" title="${user}">👤 ${user}</span>
-                    <button onclick="handleLogout()" class="text-xs bg-gray-800 hover:bg-red-600 text-white px-3 py-1.5 rounded transition-colors">退出</button>
-                `;
-            } else {
-                userArea.innerHTML = `<button onclick="showLogin()" class="text-sm font-bold text-white bg-vimeo-blue hover:bg-[#00a1d6] px-4 py-1.5 rounded transition-colors shadow">登录</button>`;
-            }
-        }
-
-        function showLogin() {
-            document.getElementById('loginModal').classList.remove('hidden');
-            document.getElementById('loginError').classList.add('hidden');
-            document.getElementById('usernameInput').value = '';
-            document.getElementById('usernameInput').focus();
-        }
-
-        function hideLogin() {
-            document.getElementById('loginModal').classList.add('hidden');
-        }
-
-        function handleLogin() {
-            const username = document.getElementById('usernameInput').value.trim();
-            if (!username) {
-                document.getElementById('loginError').classList.remove('hidden');
-                return;
-            }
-            localStorage.setItem('currentUser', username);
-            hideLogin();
-            checkAuth();
-        }
-
-        function handleLogout() {
-            localStorage.removeItem('currentUser');
-            checkAuth();
-        }
-
-        // 初始化
-        renderList();
-        fetchTMDBData();
-        updateSysInfo();
-        checkAuth();
-    </script>
+<div id="loginModal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur flex items-center justify-center hidden">
+<div class="bg-[#1e1e1e] p-8 rounded-xl shadow-2xl w-96 border border-gray-800 relative">
+<button onclick="hideLogin()" class="absolute top-4 right-4 text-gray-500 hover:text-white">✕</button>
+<h2 class="text-2xl font-bold text-center text-white mb-6">🔑 用户登录</h2>
+<input type="text" id="usernameInput" placeholder="请输入用户名" class="w-full bg-black border border-gray-700 text-white px-4 py-3 rounded focus:outline-none focus:border-vimeo-blue mb-2 transition-colors">
+<p id="loginError" class="text-red-500 text-xs mb-4 hidden">用户名不能为空</p>
+<button onclick="handleLogin()" class="w-full bg-vimeo-blue hover:bg-[#00a1d6] text-white font-bold py-3 rounded transition-colors shadow-lg">登录</button>
+</div>
+</div>
+<nav class="border-b border-gray-800 bg-[#000000]/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center space-x-3 cursor-pointer" onclick="showList()">
+<div class="w-8 h-8 bg-vimeo-blue rounded-full flex items-center justify-center">
+<svg class="w-4 h-4 text-white pl-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+</div>
+<span class="text-xl font-bold tracking-tight hover:text-[#1ab7ea] transition-colors">Watchlist</span>
+</div>
+<div class="flex items-center space-x-6">
+<div class="text-xs font-medium text-gray-400 text-right space-y-1 hidden sm:block">
+<div id="sysTime">时间加载中...</div>
+<div id="sysInfo">IP加载中...</div>
+</div>
+<div id="userArea" class="flex items-center space-x-3">
+</div>
+</div>
+</div>
+</nav>
+<main id="listView" class="max-w-[1400px] mx-auto px-6 py-10 flex-grow w-full fade-in">
+<h1 class="text-2xl font-bold mb-8 flex items-center">
+<span>最新添加</span>
+<span class="ml-3 text-sm bg-gray-800 text-gray-300 px-3 py-1 rounded-full font-normal" id="countBadge">0 部</span>
+</h1>
+<div id="movieGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 gap-y-10">
+</div>
+</main>
+<main id="detailView" class="max-w-[1200px] mx-auto px-6 py-10 flex-grow w-full hidden">
+<button onclick="showList()" class="flex items-center text-gray-400 hover:text-white mb-8 transition-colors group">
+<svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+返回列表
+</button>
+<div id="detailContent" class="flex flex-col md:flex-row gap-10 fade-in">
+</div>
+</main>
+<script>
+let movies = [];
+async function loadData() {
+try {
+const response = await fetch(`data.json?t=${new Date().getTime()}`);
+if (!response.ok) throw new Error('数据文件未找到');
+movies = await response.json();
+renderList();
+} catch (error) {
+console.error("加载数据失败:", error);
+document.getElementById('movieGrid').innerHTML = '<p class="text-red-500 col-span-full">数据加载失败，请检查仓库中是否已生成 data.json 文件。</p>';
+}
+}
+function renderList() {
+const grid = document.getElementById('movieGrid');
+document.getElementById('countBadge').innerText = `${movies.length} 部`;
+grid.innerHTML = movies.map(movie => `
+<div class="flex flex-col group cursor-pointer" onclick="openDetail(${movie.id})">
+<div class="relative aspect-[2/3] bg-[#16181c] rounded-xl overflow-hidden group-hover:shadow-2xl transition-all duration-300 ring-1 ring-gray-800">
+<img src="${movie.poster}" alt="${movie.title}" onerror="this.src='https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&w=600&q=80'" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+<div class="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded shadow">${movie.status}</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-14 h-14 bg-vimeo-blue rounded-full flex items-center justify-center pl-1 shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+<svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+</div>
+</div>
+</div>
+<div class="mt-4 flex flex-col flex-grow">
+<h3 class="text-lg font-bold text-gray-100 group-hover:text-[#1ab7ea] transition-colors line-clamp-1" title="${movie.title}">${movie.title}</h3>
+<p class="mt-1 text-sm text-gray-400">${movie.year} · ⭐ ${movie.rating}</p>
+<p class="mt-1 text-xs text-gray-500 line-clamp-1">${movie.tags.join(', ')}</p>
+<p class="mt-2 text-xs text-gray-400 line-clamp-2 leading-relaxed" title="${movie.fullDesc || movie.shortDesc}">${movie.fullDesc || movie.shortDesc}</p>
+</div>
+</div>
+`).join('');
+}
+function openDetail(id) {
+const movie = movies.find(m => m.id === id);
+if (!movie) return;
+document.getElementById('listView').classList.add('hidden');
+document.getElementById('detailView').classList.remove('hidden');
+window.scrollTo({ top: 0, behavior: 'smooth' });
+const detailContent = document.getElementById('detailContent');
+detailContent.innerHTML = `
+<div class="w-full md:w-1/3 lg:w-1/4 shrink-0">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden shadow-2xl ring-1 ring-gray-800">
+<img src="${movie.poster}" alt="${movie.title}" onerror="this.src='https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&w=600&q=80'" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="w-full md:w-2/3 lg:w-3/4 flex flex-col justify-start">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<h1 class="text-3xl md:text-5xl font-bold tracking-tight">${movie.title}</h1>
+<span class="text-2xl text-gray-500 font-light">(${movie.year})</span>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-6">
+<span class="bg-gray-800 px-3 py-1 rounded text-[#1ab7ea] font-medium">⭐ ${movie.rating}</span>
+<span>导演：<span class="text-white">${movie.director}</span></span>
+<span>类型：<span class="text-white">${movie.tags.join(', ')}</span></span>
+<span class="text-yellow-500">${movie.recommend}</span>
+</div>
+<div class="mb-8 border-t border-gray-800 pt-6">
+<h3 class="text-lg font-bold mb-3 text-gray-100">一句话简评</h3>
+<p class="text-gray-400 text-lg italic border-l-4 border-vimeo-blue pl-4">${movie.shortDesc}</p>
+</div>
+<div class="mb-8">
+<h3 class="text-lg font-bold mb-3 text-gray-100">剧情简介</h3>
+<p class="text-gray-400 leading-relaxed text-justify">${movie.fullDesc}</p>
+</div>
+${movie.episodes && movie.episodes.length > 0 ? `
+<div class="mb-8">
+<h3 class="text-lg font-bold mb-3 text-gray-100">选集播放</h3>
+<div class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-2">
+${movie.episodes.map(ep => `
+<a href="${ep.link}" target="_blank" class="flex flex-col items-center justify-center py-2 bg-gray-800 hover:bg-[#1ab7ea] text-gray-300 hover:text-white rounded transition-colors text-sm font-medium" title="${ep.title}">
+${ep.num}
+</a>
+`).join('')}
+</div>
+</div>
+` : ''}
+<div class="mt-auto pt-4 flex flex-wrap gap-4">
+${movie.bilibili ? `<a href="${movie.bilibili}" target="_blank" class="flex items-center justify-center px-6 py-3 bg-[#00a1d6] hover:bg-[#00b5e5] text-white font-bold rounded-lg transition-colors shadow-lg shadow-[#00a1d6]/20">
+<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.34 5.34l-2.09 2.09c1.94 1.25 3.25 3.4 3.25 5.82 0 3.86-3.14 7-7 7s-7-3.14-7-7c0-2.42 1.31-4.57 3.25-5.82L7.66 5.34C5.1 7.08 3.5 9.99 3.5 13.25c0 4.97 4.03 9 9 9s9-4.03 9-9c0-3.26-1.6-6.17-4.16-7.91zM11.5 5h2v9h-2z"/></svg>在 Bilibili 观看</a>` : ''}
+${movie.youtube ? `<a href="${movie.youtube}" target="_blank" class="flex items-center justify-center px-6 py-3 bg-[#ff0000] hover:bg-[#ff3333] text-white font-bold rounded-lg transition-colors shadow-lg shadow-red-500/20">
+<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>在 YouTube 观看</a>` : ''}
+</div>
+</div>
+`;
+}
+function showList() {
+document.getElementById('detailView').classList.add('hidden');
+document.getElementById('listView').classList.remove('hidden');
+}
+function updateSysInfo() {
+setInterval(() => {
+document.getElementById('sysTime').innerText = new Date().toLocaleString('zh-CN', { hour12: false });
+}, 1000);
+fetch('https://api.ipify.org?format=json')
+.then(res => res.json())
+.then(data => {
+let visits = localStorage.getItem('site_visits') || 0;
+visits = parseInt(visits) + 1;
+localStorage.setItem('site_visits', visits);
+const mockOnline = Math.floor(Math.random() * 5) + 1;
+document.getElementById('sysInfo').innerText = `IP: ${data.ip} | 在线: ${mockOnline}人 | 总访问: ${visits}次`;
+})
+.catch(() => {
+document.getElementById('sysInfo').innerText = '系统信息加载失败';
+});
+}
+function checkAuth() {
+const user = localStorage.getItem('currentUser');
+const userArea = document.getElementById('userArea');
+if (user) {
+userArea.innerHTML = `
+<span class="text-sm text-gray-300 font-medium truncate max-w-[100px]" title="${user}">👤 ${user}</span>
+<button onclick="handleLogout()" class="text-xs bg-gray-800 hover:bg-red-600 text-white px-3 py-1.5 rounded transition-colors">退出</button>
+`;
+} else {
+userArea.innerHTML = `<button onclick="showLogin()" class="text-sm font-bold text-white bg-vimeo-blue hover:bg-[#00a1d6] px-4 py-1.5 rounded transition-colors shadow">登录</button>`;
+}
+}
+function showLogin() {
+document.getElementById('loginModal').classList.remove('hidden');
+document.getElementById('loginError').classList.add('hidden');
+document.getElementById('usernameInput').value = '';
+document.getElementById('usernameInput').focus();
+}
+function hideLogin() {
+document.getElementById('loginModal').classList.add('hidden');
+}
+function handleLogin() {
+const username = document.getElementById('usernameInput').value.trim();
+if (!username) {
+document.getElementById('loginError').classList.remove('hidden');
+return;
+}
+localStorage.setItem('currentUser', username);
+hideLogin();
+checkAuth();
+}
+function handleLogout() {
+localStorage.removeItem('currentUser');
+checkAuth();
+}
+loadData();
+updateSysInfo();
+checkAuth();
+</script>
 </body>
 </html>
