@@ -476,5 +476,23 @@
         "link": "https://www.bilibili.com/video/BV1YHziBHE4R/"
       }
     ]
+  },
+  {
+    "id": 8,
+    "title": "白日梦想家",
+    "year": "2013",
+    "director": "本·斯蒂勒",
+    "rating": "8.1",
+    "tags": [
+      "剧情",
+      "喜剧"
+    ],
+    "status": "想看",
+    "recommend": "⭐⭐⭐ 强烈推荐",
+    "shortDesc": "冰岛滑板梦游，25号底片之旅",
+    "fullDesc": "沃特·密提是一名在《生活》杂志工作了16年的胶片洗印经理。他性格内向，时常做白日英雄梦。直到有一天公司被并购，杂志需要做最后一期的封面，而封面成功与否的关键是能否找到狂野摄影师尚恩的一卷胶片。沃特踏上真正的冒险之旅——冰原、大海、喜马拉雅山……白梦远不及现实壮丽。",
+    "poster": "posters/8.jpg",
+    "bilibili": "https://www.bilibili.com/video/BV1kVJ8z9EER/",
+    "youtube": "https://www.youtube.com/results?search_query=白日梦想家+The+Secret+Life+of+Walter+Mitty+2013"
   }
 ]
